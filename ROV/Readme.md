@@ -27,7 +27,7 @@
     - Right Motor: in1 (16), in2 (26), ENA (12 - PWMOutputDevice)
     - Left Motor: in3 (5), in4 (6), ENB (13 - PWMOutputDevice)
   - Control methods:
-    - `move_forward()`, `move_backward()`, `rotate_left()`, `rotate_right()`, `stop()`
+    - custom movement functions: front back left right stop wait
 
 ## 2. MQTT System
 

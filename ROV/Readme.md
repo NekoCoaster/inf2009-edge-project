@@ -4,13 +4,17 @@
 
 ### Ubuntu Installation
 - **Version:** Ubuntu Desktop 24.04.2 LTS
-- **Purpose:** Main OS for RPi5 running all edge processing
+- **Purpose:** Main OS for RPi5 running edge processing
 
 ### GPIO Testing & PWM
 - **Hardware Used:**
   - Yellow gearbox DC motors
   - L298N Motor Driver
   - LiDAR sensor (RPLIDAR A1)
+  - Raspberry pi 5
+  - Multimeter
+  - Portable battery
+  - Step up converter
 
 - **GPIO Libraries Tested:**
   - `lgpio` - Not compatible with RPi5

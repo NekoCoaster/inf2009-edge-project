@@ -28,10 +28,10 @@
 ## 2. MQTT System
 
 ### MQTT Broker
-- `mqtt://nekocoaster.ddns.net`
-- Port: `16883`
+- REDACTED
+- Port: REDACTED
 - Username: `team24`
-- Password: `qwerty123456`
+- Password: REDACTED
 
 ### MQTT Topics Used
 - `team24/rov/camera` - publishes base64 image data

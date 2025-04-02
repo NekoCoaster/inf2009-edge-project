@@ -38,6 +38,34 @@ en_b = gpiozero.PWMOutputDevice(13)
 en_a.on()
 en_b.on()
 
+
+
+# -----------------------------------------
+# LiDAR distance Functions
+# -----------------------------------------
+
+# Function to get the 90-degree distance
+def get_90_degree_distance():
+    try:
+        with open(os.path.expanduser("~/scan_90deg.txt"), "r") as f:
+            value = float(f.read().strip())
+            return value
+    except Exception:
+        return None
+
+# Function to check if the distance is safe (less than threshold)
+def wait_for_safe_90_distance(threshold=0.2):
+    while True:
+        distance = get_90_degree_distance()
+        if distance is not None:
+            print(f" 90° distance: {distance:.2f} m")
+            if distance < threshold:
+                print("Emergency stop! Object too close (< 0.2m). Aborting movement.")
+                move_backward(speed=0.5, duration=0.3)
+                return False
+            return True
+        time.sleep(0.1)
+
 # -----------------------------------------
 # Movement and Image Capture Functions
 # -----------------------------------------
@@ -51,8 +79,8 @@ def stop():
     in4.off()
     print("Motors stopped.")
 
-def move_forward(speed=0.75, duration=3):
-    en_a.value = speed
+def move_forward(speed=1.0, duration=2):
+    en_a.value = 0.5
     en_b.value = speed
     in1.off()
     in2.on()
@@ -62,8 +90,8 @@ def move_forward(speed=0.75, duration=3):
     time.sleep(duration)
     stop()
 
-def move_backward(speed=0.6, duration=2):
-    en_a.value = speed
+def move_backward(speed=0.5, duration=0.5):
+    en_a.value = 0.9
     en_b.value = speed
     in1.on()
     in2.off()
@@ -74,7 +102,7 @@ def move_backward(speed=0.6, duration=2):
     stop()
 
 def rotate_left(speed=1.0, duration=0.4):
-    en_a.value = speed
+    en_a.value = 0.5
     en_b.value = speed
     in1.on()
     in2.off()
@@ -85,7 +113,7 @@ def rotate_left(speed=1.0, duration=0.4):
     stop()
 
 def rotate_right(speed=1.0, duration=0.3):
-    en_a.value = speed
+    en_a.value = 0.5
     en_b.value = speed
     in1.off()
     in2.on()
@@ -199,13 +227,17 @@ def main_thread():
             
             # Stage 3: Execute navigation command based on AI result
             if FOG_NAVDIR == 'W':
-                move_forward()
+                if wait_for_safe_90_distance():  # Check if it's safe to move
+                    move_forward()
             elif FOG_NAVDIR == 'S':
-                move_backward()
+                if wait_for_safe_90_distance():  # Check if it's safe to move
+                    move_backward()
             elif FOG_NAVDIR == 'A':
-                rotate_left()
+                if wait_for_safe_90_distance():  # Check if it's safe to move
+                    rotate_left()
             elif FOG_NAVDIR == 'D':
-                rotate_right()
+                if wait_for_safe_90_distance():  # Check if it's safe to move
+                    rotate_right()
             elif FOG_NAVDIR == 'E':
                 stop()
             

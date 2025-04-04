@@ -96,8 +96,8 @@
 
 ### Final Design
 - Split into two scripts:
-  - `compmqtt.py`: handles MQTT, camera, movement
-  - `scan90.py`: reads LiDAR angles, writes distance
+  - `compmqtt3.py`: handles MQTT, camera, movement
+  - `specific_lidar_reader.py`: reads LiDAR angles, writes distance
 
 ## 6. Commands After Every Boot
 

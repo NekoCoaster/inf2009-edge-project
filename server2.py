@@ -21,10 +21,10 @@ from llava.conversation import conv_templates
 # ------------------------------
 
 # MQTT Configuration
-MQTT_BROKER = "nekocoaster.ddns.net"       # Replace with your broker
-MQTT_PORT = 16883
-MQTT_USERNAME = "llava"                     # Replace with your username
-MQTT_PASSWORD = "qwerty123456"              # Replace with your password
+MQTT_BROKER = "broker.example.com"       # Replace with your broker 
+MQTT_PORT = 1883
+MQTT_USERNAME = "yourUsername"         # Replace with your username 
+MQTT_PASSWORD = "yourPassword"         # Replace with your password
 
 # Image Configuration
 IMG_MAX_RES = 360  # The maximum width/height of incoming images

@@ -6,11 +6,11 @@ import tkinter as tk
 import paho.mqtt.client as mqtt
 
 # -------- MQTT Configuration --------
-MQTT_BROKER = REDACTED     # Replace with your broker
-MQTT_PORT = REDACTED
+MQTT_BROKER = "yourBrokerDomainOrIp"       # Replace with your broker
+MQTT_PORT = 1883
 MQTT_TOPIC = "team24/rov/camera"        # Replace with your topic
-MQTT_USERNAME = "ImageViewer"         # Replace with your username
-MQTT_PASSWORD = REDACTED        # Replace with your password
+MQTT_USERNAME = "mqttUserName"         # Replace with your username
+MQTT_PASSWORD = "mqttPassword"         # Replace with your password
 
 # -------- GUI Setup --------
 class ImageViewer:

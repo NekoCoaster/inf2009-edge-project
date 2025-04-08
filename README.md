@@ -150,10 +150,6 @@ print(torch.cuda.get_device_name(0))
 - If Conda isn't found after `phase1.sh`:
 - Try opening a new terminal or run `source ~/.bashrc`.
 
-Got it. Here's what you should **insert before Step 4** in your `README.md` to explain the testing scripts properly:
-
----
-
 ## Step 4: Running the Model Testing Scripts
 
 After successfully setting up LLaVA-NeXT, you can run the following **testing scripts** to verify the model installation and test its integration with MQTT.
@@ -265,9 +261,6 @@ They will cleanly disconnect from the MQTT broker before exiting.
 3. Finally, run `server4.py` to test full ROV behavior (object detection + navigation).
 
 ---
-
-Would you also like me to polish your section titles afterward so the README flows even more nicely (e.g., "Setting Up LLaVA-NeXT", "Testing the Model", "Live MQTT Image Preview")? 🚀  
-Let me know!
 
 ## Step 5: Running the MQTT Image Viewer Scripts
 
